@@ -39,8 +39,35 @@ class Author {
   }
 }
 
+class Book extends Author {
+  constructor(title, price, quantity) {
+    super(author1.name);
+    this.title = title;
+    this.price = price;
+    this.quantity = quantity;
+  }
+  getters() {
+    return `${this.title} has been writen by ${this.name}, it costs ${this.price}$, and there are ${this.quantity} left in stock`;
+  }
+  getProfit() {
+    if (this.quantity === '0') {
+      return `Profit is 0 $`;
+    } else if (this.quantity > 0) {
+      return `Profit is ${this.quantity * this.price}$`;
+    }
+  }
+}
+
 let author1 = new Author('J. K. Rowling', 'abc@gmail.com', 'female');
 
 console.log(author1.gender);
 console.log(author1.name);
 console.log(author1.toString());
+
+let book1 = new Book('Harry Potter', 5, 100);
+
+console.log(book1.title);
+console.log(book1.price);
+console.log(book1.quantity);
+console.log(book1.getters());
+console.log(book1.getProfit());
