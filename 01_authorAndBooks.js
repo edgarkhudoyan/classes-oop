@@ -40,3 +40,7 @@ class Author {
 }
 
 let author1 = new Author('J. K. Rowling', 'abc@gmail.com', 'female');
+
+console.log(author1.gender);
+console.log(author1.name);
+console.log(author1.toString());
