@@ -10,10 +10,7 @@ class Shiritori {
       return this.words;
     }
 
-    if (
-      word.charAt(0) ===
-      this.words[this.words.length - 1].charAt(this.words.length)
-    ) {
+    if (word[0] === this.words[this.words.length - 1].slice(-1)) {
       this.words.push(word);
       return this.words;
     } else {
@@ -21,9 +18,17 @@ class Shiritori {
       return `Game Over!`;
     }
   }
+
+  restart() {
+    this.words = [];
+    this.isGameOver = false;
+    return `The game has been restarted!`;
+  }
 }
 
 let myShiritori = new Shiritori();
 
 console.log(myShiritori.words);
 console.log(myShiritori.play('apple'));
+console.log(myShiritori.play('ear'));
+console.log(myShiritori.play('red'));
