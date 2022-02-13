@@ -21,13 +21,29 @@ toString() */
 
 class Author {
   constructor(name, email, gender) {
-    this.name = name;
-    this.email = email;
-    this.gender = gender;
+    this._name = name;
+    this._email = email;
+    this._gender = gender;
   }
-  getters() {
-    return `Author is ${this.name}, ${this.email}, Gender ${this.gender}`;
+  get name() {
+    return this._name;
   }
+
+  get email() {
+    return this._email;
+  }
+
+  get gender() {
+    return this._gender;
+  }
+
+  set name(value) {
+    if (typeof value === 'string') {
+      this._name = value;
+    }
+    return this._name;
+  }
+
   toString() {
     if (this.gender === 'male') {
       return `Mr. ${this.name}`;
@@ -39,14 +55,30 @@ class Author {
   }
 }
 
-class Book extends Author {
+class Book {
   constructor(title, price, quantity) {
-    super(author1.name);
-    this.title = title;
-    this.price = price;
-    this.quantity = quantity;
+    this._title = title;
+    this._price = price;
+    this._quantity = quantity;
   }
-  getters() {
+  get title() {
+    return this._title;
+  }
+  get price() {
+    return this._price;
+  }
+  get quantity() {
+    return this._quantity;
+  }
+
+  set title(value) {
+    if (typeof value === 'string') {
+      this._title = value;
+    }
+    return this._title;
+  }
+
+  toString() {
     return `${this.title} has been writen by ${this.name}, it costs ${this.price}$, and there are ${this.quantity} left in stock`;
   }
   getProfit() {
@@ -69,5 +101,5 @@ let book1 = new Book('Harry Potter', 5, 100);
 console.log(book1.title);
 console.log(book1.price);
 console.log(book1.quantity);
-console.log(book1.getters());
+console.log(book1.toString());
 console.log(book1.getProfit());
