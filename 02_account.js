@@ -1,19 +1,31 @@
 class Account {
   constructor(id, name, balance) {
-    this.id = id;
-    this.name = name;
-    this.balance = balance;
+    this._id = id;
+    this._name = name;
+    this._balance = balance;
   }
 
-  getters() {
-    let fullInfo = this.id + this.name + this.balance;
-    return fullInfo;
+  get id() {
+    return this._id;
+  }
+  get name() {
+    return this._name;
+  }
+  get balance() {
+    return this._balance;
   }
 
-  setters(name, balance) {
-    name = this.name;
-    balance = this.balance;
-    return name + balance;
+  set name(value) {
+    if (typeof value === 'string') {
+      this._name = value;
+    }
+    return this._name;
+  }
+  set balance(value) {
+    if (typeof value === 'number') {
+      this._balance = value;
+    }
+    return this._balance;
   }
 
   credit(amount) {
