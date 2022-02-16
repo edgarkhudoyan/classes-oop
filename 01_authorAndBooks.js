@@ -82,7 +82,7 @@ class Book {
     return `${this.title} has been writen by ${this.name}, it costs ${this.price}$, and there are ${this.quantity} left in stock`;
   }
   getProfit() {
-    if (this.quantity === '0') {
+    if (this.quantity === 0) {
       return `Profit is 0 $`;
     } else if (this.quantity > 0) {
       return `Profit is ${this.quantity * this.price}$`;
